@@ -1,5 +1,34 @@
 # Bejeweled
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 In this project, you will create a command-line Bejeweled game. Unlike
 previous projects, you will be start by implementing test specs in
 `bejeweled-spec.js` for the game logic. Once these specs are in place, you can
