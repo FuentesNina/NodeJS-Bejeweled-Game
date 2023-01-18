@@ -2,4 +2,4 @@
 
 const Bejeweled = require("./class/bejeweled");
 
-bejeweled = new Bejeweled(8,8);
+bejeweled = new Bejeweled(4,4);

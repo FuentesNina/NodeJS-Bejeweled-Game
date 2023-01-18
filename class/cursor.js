@@ -103,8 +103,6 @@ class Cursor {
 
     Screen.setGrid(...currentPosition, nextChar);
     Screen.setGrid(...nextPosition, currentChar);
-
-    this.cursorColor = 'yellow';
   }
 
 }
