@@ -31,24 +31,19 @@ class Cursor {
       if (this.cursorColor === 'blue') {
         this.swap([-1,0]);
       }
-
       this.row += -1;
-
     }
-
     this.setBackgroundColor();
   }
 
   down() {
     // Move cursor down
-
     this.resetBackgroundColor();
     // Move cursor down
     if (this.row < this.numRows - 1) {
       if (this.cursorColor === 'blue') {
         this.swap([1,0]);
       }
-
       this.row += 1;
     }
     this.setBackgroundColor();
@@ -76,7 +71,6 @@ class Cursor {
       if (this.cursorColor === 'blue') {
         this.swap([0,1]);
       }
-
       this.col += 1;
     }
     this.setBackgroundColor();

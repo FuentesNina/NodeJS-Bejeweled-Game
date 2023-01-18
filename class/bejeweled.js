@@ -5,11 +5,6 @@ class Bejeweled {
 
   constructor(numRows,numCols) {
 
-    // this.playerTurn = "O";
-    // this.grid = Bejeweled.initializeBoard(numRows, numCols);
-
-    // Initialize this
-
     this.score = 0;
     this.cursor = new Cursor(numRows, numCols);
 
@@ -134,6 +129,7 @@ class Bejeweled {
 
     if (!Bejeweled._checkForGoodGame(Screen.grid,Screen.grid.length, Screen.grid[0].length)) {
       return null;
+      //return null if no viable game (end of game)
     }
 
     //return empty object {} if viable game but no matches

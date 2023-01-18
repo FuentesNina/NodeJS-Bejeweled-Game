@@ -1,7 +1,7 @@
 const { expect } = require('chai');
 
 const Bejeweled = require("../class/bejeweled.js");
-// let { grid } = require('../class/screen.js');
+
 const Screen = require('../class/screen');
 
 describe ('Bejeweled', function () {
@@ -270,11 +270,11 @@ describe ('Bejeweled', function () {
       });
 
       let removed = [
-        ['','',''],
-        ['🍋','','🍉'],
-        ['','',''],
-        ['🍋','','🍉'],
-        ['🍋','','🍉']
+        ['  ','  ','  '],
+        ['🍋','  ','🍉'],
+        ['  ','  ','  '],
+        ['🍋','  ','🍉'],
+        ['🍋','  ','🍉']
       ];
 
       let matches = Bejeweled.checkForMatches(Screen.grid);
@@ -283,26 +283,6 @@ describe ('Bejeweled', function () {
 
       expect(Screen.grid).to.deep.equal(removed);
     })
-
-    // it('should remove vertical matches', function () {
-    //   let grid = [
-    //     ['🍇','🍊','🍉'],
-    //     ['🍋','🍌','🍉'],
-    //     ['🍋','🍌','🍉']
-    //   ];
-
-    //   let removed = [
-    //     ['🍇','🍊',''],
-    //     ['🍋','🍌',''],
-    //     ['🍋','🍌','']
-    //   ];
-
-    //   let matches = Bejeweled.checkForMatches(grid);
-
-    //   let actual = Bejeweled.removeMatches(grid, matches);
-
-    //   expect(actual).to.deep.equal(removed);
-    // })
 
   });
 
@@ -385,7 +365,7 @@ describe ('Bejeweled', function () {
     it('should add random items to open spaces without changing existing items (horizontal)', function () {
       let grid = [
         ['🍉','🍊','  ','🍊','🍉'],
-        ['🍇','🍉','  ','🍉','🍉'],
+        ['🍇','🍉','  ','  ','  '],
         ['🍇','🍊','  ','🍊','🍇'],
         ['🍋','🍌','🍉','🍌','🍉'],
         ['🍋','🍌','🍇','🍌','🍉']
@@ -412,27 +392,6 @@ describe ('Bejeweled', function () {
       }
 
     })
-
-    // it('should add random items to open spaces without changing existing items (vertical)', function () {
-    //   let gridVertical = [
-    //     ['🍇','🍊',''],
-    //     ['🍋','🍌',''],
-    //     ['🍋','🍌','']
-    //   ];
-
-    //   let actual2 = Bejeweled._fillUpSpace(gridVertical)
-
-    //   for (let i = 0; i < gridVertical.length; i++) {
-    //     for (let j = 0; j < gridVertical[0].length; j++) {
-    //       if (gridVertical[i][j] === '') {
-    //         expect(actual2[i][j]).to.not.be.false;
-    //       } else {
-    //         expect(actual2[i][j]).to.equal(gridVertical[i][j]);
-    //       }
-    //     }
-    //   }
-
-    // })
   })
 
 });

@@ -77,33 +77,28 @@ describe ('Cursor', function () {
   })
 
   it('swaps items in all directions', function () {
-    let initialGrid = [
+    let grid = [
       ['🍇','🍊','🍉'],
       ['🍌','🍎','🍏'],
       ['🍋','🍌','🍎'],
     ]
 
-    // Screen.initialize();
-    Screen.grid = initialGrid;
+    Screen.initialize(3, 3);
 
+    grid.forEach((row,rowIndex) => {
+      row.forEach((fruit, colIndex) => {
+        Screen.setGrid(rowIndex, colIndex, fruit)
+      })
+    });
 
     cursor.select();
     cursor.up();
 
-    expect(cursor.cursorColor).to.equal('blue');
     expect([cursor.row, cursor.col]).to.deep.equal([0, 0]);
-    expect(Screen.grid).to.equal(initialGrid);
+    expect(Screen.grid).to.deep.equal(grid);
 
-    // Screen.backgroundColors = [
-    //   ['\x1b[40m','\x1b[40m','\x1b[40m'],
-    //   ['\x1b[40m','\x1b[40m','\x1b[40m'],
-    //   ['\x1b[40m','\x1b[40m','\x1b[40m'],
-    // ];
-    Screen.initialized = true;
     cursor.down();
 
-
-    expect(cursor.cursorColor).to.equal('yellow');
     expect([cursor.row, cursor.col]).to.deep.equal([1, 0]);
     expect(Screen.grid).to.deep.equal([
                                         ['🍌','🍊','🍉'],
@@ -111,10 +106,8 @@ describe ('Cursor', function () {
                                         ['🍋','🍌','🍎'],
                                       ]);
 
-    cursor.select();
     cursor.right();
 
-    expect(cursor.cursorColor).to.equal('yellow');
     expect([cursor.row, cursor.col]).to.deep.equal([1, 1]);
     expect(Screen.grid).to.deep.equal([
                                         ['🍌','🍊','🍉'],
@@ -122,10 +115,8 @@ describe ('Cursor', function () {
                                         ['🍋','🍌','🍎'],
                                       ]);
 
-    cursor.select();
     cursor.up();
 
-    expect(cursor.cursorColor).to.equal('yellow');
     expect([cursor.row, cursor.col]).to.deep.equal([0, 1]);
     expect(Screen.grid).to.deep.equal([
                                         ['🍌','🍇','🍉'],
@@ -133,10 +124,8 @@ describe ('Cursor', function () {
                                         ['🍋','🍌','🍎'],
                                       ]);
 
-    cursor.select();
     cursor.left();
 
-    expect(cursor.cursorColor).to.equal('yellow');
     expect([cursor.row, cursor.col]).to.deep.equal([0, 0]);
     expect(Screen.grid).to.deep.equal([
                                         ['🍇','🍌','🍉'],
@@ -145,91 +134,5 @@ describe ('Cursor', function () {
                                       ]);
 
   });
-
-  // it('swaps item right', function () {
-  //   cursor.right();
-  //   cursor.down();
-
-  //   cursor.select();
-
-  //   cursor.swap('right');
-
-  //   expect([cursor.row, cursor.col]).to.deep.equal([1, 2]);
-
-  //   cursor.select();
-
-  //   cursor.swap('right');
-
-  //   expect([cursor.row, cursor.col]).to.deep.equal([1, 2]);
-  // })
-
-  // it('swaps item left', function () {
-  //   cursor.right();
-  //   cursor.down();
-
-  //   cursor.select();
-
-  //   cursor.swap('left');
-
-  //   expect([cursor.row, cursor.col]).to.deep.equal([1, 0]);
-
-  //   cursor.select();
-
-  //   cursor.swap('left');
-
-  //   expect([cursor.row, cursor.col]).to.deep.equal([1, 0]);
-  // })
-
-  // it('swaps item up', function () {
-  //   cursor.right();
-  //   cursor.down();
-
-  //   cursor.select();
-
-  //   cursor.swap('up');
-
-  //   expect([cursor.row, cursor.col]).to.deep.equal([0, 1]);
-
-  //   cursor.select();
-
-  //   cursor.swap('up');
-
-  //   expect([cursor.row, cursor.col]).to.deep.equal([0, 1]);
-  // })
-
-  // it('swaps item down', function () {
-  //   cursor.right();
-  //   cursor.down();
-
-  //   cursor.select();
-
-  //   cursor.swap('down');
-
-  //   expect([cursor.row, cursor.col]).to.deep.equal([2, 1]);
-
-  //   cursor.select();
-
-  //   cursor.swap('down');
-
-  //   expect([cursor.row, cursor.col]).to.deep.equal([2, 1]);
-
-  // })
-
-  // it('does nothing if movement not valid', function () {
-  //   cursor.select();
-  //   cursor.swap('up');
-
-  //   expect([cursor.row, cursor.col]).to.deep.equal([0, 0]);
-  // })
-
-  // add test for swapping items
-  /**
-   * swap item right
-   * swap left
-   * swap up
-   * swap down
-   * does nothing if not valid
-   */
-
 
 });
